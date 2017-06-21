@@ -1,0 +1,21 @@
+{
+  "name": "jin",
+  "version": "0.0.1",
+  "description": "color",
+  "main": "jin.js",
+  "repository": "git@github.com:fjonas/jin.git",
+  "author": "chenwj <731028571@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-env": "^0.21.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  }
+}
