@@ -1,3 +1,3 @@
-export const jin = {
+export default {
     a: "a"
 }

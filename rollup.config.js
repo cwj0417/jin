@@ -18,5 +18,5 @@ export default {
         })
     ],
     format: "umd",
-    moduleName: "shiny-scroll"
+    moduleName: "jin"
 };

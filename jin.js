@@ -1,15 +1,13 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global['shiny-scroll'] = global['shiny-scroll'] || {})));
-}(this, (function (exports) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.jin = factory());
+}(this, (function () { 'use strict';
 
-var jin = {
+var index = {
     a: "a"
 };
 
-exports.jin = jin;
-
-Object.defineProperty(exports, '__esModule', { value: true });
+return index;
 
 })));
