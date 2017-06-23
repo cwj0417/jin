@@ -1,5 +1,5 @@
 {
-  "name": "jin",
+  "name": "jinjin",
   "version": "0.0.1",
   "description": "color",
   "main": "jin.js",
@@ -8,10 +8,14 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "prepublish": "npm run build"
+    "test": "mocha test",
+    "prepublish": "npm run test",
+    "pretest": "npm run build"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
