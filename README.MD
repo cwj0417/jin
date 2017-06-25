@@ -33,3 +33,12 @@ let white = jin("#fff")
 let black = jin(0, 0, 0)
 ```
 
+## setHSB
+`type` function
+`input` Object ({h, s, b})
+`return` Color instance
+
+## (class) Color
+properties:
+`rgb` Object ({r, g, b})
+`hsb` Object ({h, s, b})
