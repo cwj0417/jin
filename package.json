@@ -7,7 +7,8 @@
   "author": "chenwj <731028571@qq.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup --config rollup/build.js",
+    "dev.eg": "node rollup/example.js",
     "test": "mocha test",
     "prepublish": "npm run test",
     "pretest": "npm run build"
@@ -15,7 +16,9 @@
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
     "chai": "^4.0.2",
+    "express": "^4.15.3",
     "mocha": "^3.4.2",
+    "opn": "^5.1.0",
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",

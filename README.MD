@@ -20,6 +20,13 @@ use script
 <script src="./node_modules/jin/jin.js" />
 ```
 
+# how to run example
+
+```bash
+npm run dev.eg // use npm
+yarn dev.eg // use yarn
+```
+
 # api
 
 ## jin
