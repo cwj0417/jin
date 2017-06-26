@@ -1,8 +1,15 @@
 function assert(condition, msg) {
     if (!condition) throw new Error(`[jin] ${msg}`)
 }
+function checkRGB (...args) {
+    args.forEach(each => checkRange(each, 0, 255, "rgb"))
+}
+function checkRange (target, min, max, msg) {
+    assert(+target <= max && +target >= min, `invalid ${msg}: target`)
+}
 class Color {
     constructor({r, g, b}) {
+        checkRGB(r, g, b)
         this.rgb = {r, g, b}
         this.hsb = this.getHSB(r, g, b)
     }
@@ -88,6 +95,9 @@ class Color {
     }
 
     setHSB ({h = this.hsb.h, s = this.hsb.s, b = this.hsb.b} = {}) {
+        checkRange(h, 0, 359, "hue")
+        checkRange(s, 0, 100, "saturation")
+        checkRange(b, 0, 100, "brightness")
         this.rgb = this.getRGB(h, s, b)
         return this
     }
