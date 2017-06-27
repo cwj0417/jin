@@ -1,5 +1,6 @@
 let assert = require("chai").assert
-let jin = require("../jin")
+let jin = require("../jin").default
+
 
 describe("construct", function () {
     it("hex", function () {
