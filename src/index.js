@@ -5,7 +5,7 @@ function checkRGB (...args) {
     args.forEach(each => checkRange(each, 0, 255, "rgb"))
 }
 function checkRange (target, min, max, msg) {
-    assert(+target <= max && +target >= min, `invalid ${msg}: target`)
+    assert(+target <= max && +target >= min, `invalid ${msg}: ${target}`)
 }
 class Color {
     constructor({r, g, b}) {
@@ -39,6 +39,9 @@ class Color {
     }
 
     getHSB(r, g, bl) {
+        r = +r
+        g = +g
+        bl = +bl
         let max = Math.max(r, g, bl)
         let min = Math.min(r, g, bl)
         let diff = max - min
@@ -63,6 +66,9 @@ class Color {
     }
 
     getRGB(h, s, br) {
+        h = +h
+        s = +s
+        br = +br
         s = s / 100
         br = br * 255 / 100
         let hi = Math.floor((h / 60) % 6)
@@ -98,7 +104,15 @@ class Color {
         checkRange(h, 0, 359, "hue")
         checkRange(s, 0, 100, "saturation")
         checkRange(b, 0, 100, "brightness")
+        this.hsb = {h, s, b}
         this.rgb = this.getRGB(h, s, b)
+        return this
+    }
+
+    setRGB ({r = this.rgb.r, g = this.rgb.g, b = this.rgb.b} = {}) {
+        checkRGB(r, g, b)
+        this.rgb = {r, g, b}
+        this.hsb = this.getHSB(r, g, b)
         return this
     }
 
@@ -109,13 +123,13 @@ class Color {
 function padDigit (origin) {
     return origin.length === 1 ? "0" + origin : origin
 }
-function parseHex(r, g, b) {
+export function parseHex(r, g, b) {
     assert(arguments.length === 1 || arguments.length === 3, "incorrect color string")
     if (arguments.length === 3) {
         return {r, g, b}
     } else {
         (r[0] === "#") && (r = r.slice(1))
-        assert(r.length === 3 || r.length === 6)
+        assert((/^[0-9a-f]{3}$/).test(r) || (/^[0-9a-f]{6}$/).test(r), "incorrect color string")
         if (r.length === 3) {
             r = `${r[0]}${r[0]}${r[1]}${r[1]}${r[2]}${r[2]}`
         }
