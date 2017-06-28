@@ -14,7 +14,7 @@ describe("construct", function () {
     })
     it("tostring", function () {
         assert.equal(jin(0, 255, 0).toString(), "#00ff00")
-    })
+    })  
 })
 describe("hsb", function () {
     it("red", function () {
