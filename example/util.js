@@ -16,6 +16,12 @@ export const $ = function (selector, className, type) {
     let results = document.querySelectorAll(selector)
     return results.length === 1 ? results[0] : results
 }
+export const $o = function (value, label) {
+    let dom = document.createElement("option")
+    dom.setAttribute("value", value)
+    dom.innerText = label
+    return dom
+}
 
 export const throttle = function(fn, timeout = 200) {
     let timer

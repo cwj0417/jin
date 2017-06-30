@@ -5,7 +5,7 @@ function checkRGB (...args) {
     args.forEach(each => checkRange(each, 0, 255, "rgb"))
 }
 function checkRange (target, min, max, msg) {
-    assert(+target <= max && +target >= min, `invalid ${msg}: ${target}`)
+    assert(+target < max + 1 && +target > min - 1, `invalid ${msg}: ${target}`)
 }
 class Color {
     constructor({r, g, b}) {
