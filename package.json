@@ -1,28 +1,52 @@
 {
   "name": "jinjin",
-  "version": "0.2.1",
-  "description": "color",
-  "main": "jin.js",
-  "repository": "git@github.com:fjonas/jin.git",
+  "version": "0.3.0",
+  "description": "A tiny, dependency-free color engine: parsing, RGB/HSV/HSL/OKLCH conversion, harmonies, manipulation and WCAG contrast.",
+  "type": "module",
+  "main": "./dist/jin.umd.cjs",
+  "module": "./dist/jin.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/jin.js",
+      "require": "./dist/jin.umd.cjs"
+    }
+  },
+  "unpkg": "./dist/jin.umd.cjs",
+  "jsdelivr": "./dist/jin.umd.cjs",
+  "files": [
+    "dist",
+    "types",
+    "README.MD"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --config vite.umd.config.js",
+    "build:demo": "vite build --config vite.demo.config.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "repository": "git@github.com:cwj0417/jin.git",
   "author": "chenwj <731028571@qq.com>",
   "license": "MIT",
-  "scripts": {
-    "build": "rollup --config rollup/build.js",
-    "dev.eg": "node rollup/example.js",
-    "test": "mocha test",
-    "prepublish": "npm run test",
-    "pretest": "npm run build"
+  "keywords": [
+    "color",
+    "palette",
+    "oklch",
+    "hsl",
+    "hsv",
+    "wcag",
+    "contrast",
+    "color-scheme"
+  ],
+  "engines": {
+    "node": ">=20"
   },
   "devDependencies": {
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "chai": "^4.0.2",
-    "express": "^4.15.3",
-    "mocha": "^3.4.2",
-    "opn": "^5.1.0",
-    "rollup": "^0.43.0",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-env": "^0.21.2",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0"
   }
 }
